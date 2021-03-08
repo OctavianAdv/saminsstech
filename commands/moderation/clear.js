@@ -3,6 +3,7 @@ module.exports = {
     aliases: ['purge'],
 
     run : async(client, message, args) => {
+        if(!args[0]) return message.channel.send('```prefix!clear {numbers}``')
         if(isNaN(args[0])) return message.channel.send('Numbers are only allowed')
         await message.channel.bulkDelete(parseInt(args[0]) + 1)
         .catch(err => console.log(err))

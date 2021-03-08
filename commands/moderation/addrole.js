@@ -4,7 +4,9 @@ module.exports = {
         /**
          * @param {Message} message
          */
+        
         if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You do not have permission.')
+        if(!args[0]) return message.channel.send('```Syntax : prefix!addrole @User @Role```')
 
         const primesterole = message.mentions.members.first()
         if(!primesterole) return message.channel.send('No member specified')

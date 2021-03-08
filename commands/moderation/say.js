@@ -8,6 +8,7 @@ module.exports = {
    * @param {String[]} args
    */
   run: async (client, message, args) => {
+    if(!args[0]) return message.channel.send('```Syntax : prefix!addrole @User @Role```')
     const sayEmbed = new MessageEmbed()
         .setAuthor(message.author.tag, message.author.displayAvatarURL({ dyanmic: true }))
         .setDescription(args.join(" "))

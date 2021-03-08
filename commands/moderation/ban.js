@@ -3,6 +3,7 @@ module.exports = {
 
     run: async(client,message, args) => {
         if(!message.guild.me.hasPermission('ban_MEMBERS')) return message.channel.send('i do not have permission to ban members');
+        if(!args[0]) return message.channel.send('```Syntax : prefix!ban @User```')
     
         const Membru = message.mentions.members.first()
         if(!Membru) return message.channel.send('Please specify a member to ban');
