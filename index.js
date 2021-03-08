@@ -1,4 +1,4 @@
-const {Collection, Client, Discord} = require('discord.js')
+const {Collection, Client, Discord, MessageEmbed} = require('discord.js')
 const fs = require('fs')
 const client = new Client({
     disableEveryone: true
@@ -16,6 +16,27 @@ client.on('ready', () => {
     client.user.setActivity(`${prefix}help`)
     console.log(`${client.user.username} ✅`)
 })
+
+client.on('guildMemberAdd', async(member) => {
+    const canal = member.guild.channels.cache.get('818567516926378014')
+
+    const embed = new MessageEmbed()
+    .setColor('PURPLE')
+    .setTitle('Noul golan')
+    .setDescription(`**${member.displayName}** welcome to ${member.guild.name}, avem acu ${member.guild.memberCount} members`)
+    channel.send(embed)
+})
+
+client.on('guildMemberRemove', async(member) => {
+    const canal = member.guild.channels.cache.get('818567516926378014')
+
+    const embed = new MessageEmbed()
+    .setColor('RED')
+    .setTitle('un membru a parasit pizda lu ma ta :( trist #tristete')
+    .setDescription(`**${member.displayName}** a parasit pizda lu ma-ta ${member.guild.name}, acu avem locuitori in pizda la ma sa ${member.guild.memberCount} members`)
+    channel.send(embed)
+})
+
 client.on('message', async message =>{
     if(message.author.bot) return;
     if(!message.content.startsWith(prefix)) return;
