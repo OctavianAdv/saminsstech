@@ -13,7 +13,7 @@ client.categories = fs.readdirSync("./commands/");
     require(`./handlers/${handler}`)(client);
 }); 
 client.on('ready', () => {
-    client.user.setActivity(`${prefix}help`)
+    client.user.setActivity(`${prefix}help, watching how octavian coded me. :whack:`)
     console.log(`${client.user.username} ✅`)
 })
 
