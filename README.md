@@ -19,5 +19,11 @@ Why not make your code cleaner and easier to acess when you can, follow these ea
 It should look something like this
 ![node .](https://octavian.carded.cc/mwJ8B9)
 
+#Information about BOT
+
+*   👻 **Funny**: `chat`!
+*   🚓 **Moderation**: `addrole`, `ban`, `clear`, `kick`, `removerole`, `say`!
+*   🖨️ **Utils**: `terminal`, `text`!    
+
 # Contacts
 -Octavian#0001 on discord
