@@ -14,7 +14,23 @@ client.categories = fs.readdirSync("./commands/");
 }); 
 client.on('ready', () => {
     client.user.setActivity(`${prefix}help, watching how octavian coded me. :whack:`)
-    console.log(`${client.user.username} ✅`)
+    console.log(`${client.user.username} ✅`);
+
+    const statusarray = [
+        `get good`,
+        `get saminss tweaks`,
+        `i have low latency + Fps boost`,
+        `low input deelay`
+    ];
+
+    let index = 0;
+    setInterval(() => {
+        if(index === statusarray.length) index = 0;
+        const status = statusarray[index];
+        console.log(status);
+        client.user.setActivity(status);
+        index++;
+    }, 4500);
 })
 
 client.on('guildMemberAdd', async(member) => {

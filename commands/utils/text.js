@@ -16,7 +16,7 @@ module.exports = {
                 font: "Star Wars",
             },
             async(err, data) => {
-                message.channe.send(`\`\`\`${data}\`\`\``);
+                message.channel.send(`\`\`\`${data}\`\`\``);
             }
         );
     },
