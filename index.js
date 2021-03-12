@@ -27,7 +27,6 @@ client.on('ready', () => {
     setInterval(() => {
         if(index === statusarray.length) index = 0;
         const status = statusarray[index];
-        console.log(status);
         client.user.setActivity(status);
         index++;
     }, 4500);
