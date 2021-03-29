@@ -11,7 +11,7 @@ module.exports = {
 
     run: async(client, message, args) => {
         const query = args.join("");
-        if(!query) return message.reply("Specifica un query.");
+        if(!query) return message.reply("Say a query.");
         const url = `https://djsdocs.sorta.moe/v2/embed?src=stable&q=${encodeURIComponent(
             query
         )}`;
