@@ -1,11 +1,12 @@
 const {Collection, Client, Discord, MessageEmbed} = require('discord.js')
 const fs = require('fs')
+const config = require('./config.json')
 const client = new Client({
     disableEveryone: true
 })
-const config = require('./config.json')
 const prefix = config.prefix
-const token = config.token
+const token = config.token                                      
+client.config = config
 client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./commands/");
@@ -13,11 +14,11 @@ client.categories = fs.readdirSync("./commands/");
     require(`./handlers/${handler}`)(client);
 }); 
 client.on('ready', () => {
-    client.user.setActivity(`${prefix}help, watching how octavian coded me. :whack:`)
     console.log(`${client.user.username} ✅`);
 
     const statusarray = [
         `get good`,
+        `watching to saminss club`,
         `get saminss tweaks`,
         `i have low latency + Fps boost`,
         `low input deelay`
@@ -33,23 +34,12 @@ client.on('ready', () => {
 })
 
 client.on('guildMemberAdd', async(member) => {
-    const canal = member.guild.channels.cache.get('818567516926378014')
-
-    const embed = new MessageEmbed()
-    .setColor('PURPLE')
-    .setTitle('Noul golan')
-    .setDescription(`**${member.displayName}** welcome to ${member.guild.name}, avem acu ${member.guild.memberCount} members`)
-    channel.send(embed)
-})
-
-client.on('guildMemberRemove', async(member) => {
-    const canal = member.guild.channels.cache.get('818567516926378014')
-
+    const Channel = member.guild.channels.cache.get('776562193256546325')
     const embed = new MessageEmbed()
     .setColor('RED')
-    .setTitle('un membru a parasit pizda lu ma ta :( trist #tristete')
-    .setDescription(`**${member.displayName}** a parasit pizda lu ma-ta ${member.guild.name}, acu avem locuitori in pizda la ma sa ${member.guild.memberCount} members`)
-    channel.send(embed)
+    .setTitle('NEW Member')
+    .setDescription(`${member.diplayName} ** welcome to ${member.guild.name} we have now ${member.guild.memberCount}`)
+    Channel.send(embed)
 })
 
 client.on('message', async message =>{
@@ -63,5 +53,12 @@ client.on('message', async message =>{
     let command = client.commands.get(cmd)
     if(!command) command = client.commands.get(client.aliases.get(cmd));
     if(command) command.run(client, message, args) 
+})
+const { GiveawaysManager } = require('discord-giveaways')
+client.giveaways = new GiveawaysManager(client, {
+    storage: './giveaway.json',
+    updateCountdownEvery: 5000,
+    embedColor: '#408080',
+    reaction : '🎉'
 })
 client.login(token)
