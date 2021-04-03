@@ -54,6 +54,21 @@ client.on('message', async message =>{
     if(!command) command = client.commands.get(client.aliases.get(cmd));
     if(command) command.run(client, message, args) 
 })
+
+//music >> 
+const distube = require("distube");
+const player = new distube(client);
+
+player.on("playSong", (message, queue, song) => {
+    message.channel.send(`${song.name} a inceput sa cante`);
+    const embed = new MessageEmbed()
+        .setTitle('Now Playing')
+        .setDescription(`${song.name}`)
+        .setFooter(`Requested by ${message.author.tag}`)
+        message.channel.send(embed);
+});
+client.player = player;
+//music <<
 const { GiveawaysManager } = require('discord-giveaways')
 client.giveaways = new GiveawaysManager(client, {
     storage: './giveaway.json',
