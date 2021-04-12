@@ -11,6 +11,7 @@ module.exports = {
      */
 
     run: async(client,message,args) => {
+        if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`${message.author.tag} nu ai acces.`);
         if (message.author.id !== "595233896770043905") return;
 
         const command = args.join(" ");

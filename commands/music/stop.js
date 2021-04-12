@@ -1,4 +1,4 @@
-const { Client, Message, MessageEmbed} = require("discord.js");
+const { Client, Message, MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "stop",
@@ -8,10 +8,10 @@ module.exports = {
      * @param {Message} message
      * @param {String[]} args
      */
-    run: async(client, message, args) =>  {
+    run: async (client, message, args) => {
         if (!message.member.voice.channel)
-            return message.reply("Te rog intra pe un canal.");
+            return message.reply("Please join in a voice channel");
 
-        client.player.stop(message);
+        client.player.stop()
     },
 };
