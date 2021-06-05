@@ -11,6 +11,8 @@ module.exports = {
         if(!Membru) return message.channel.send('Please specify a member to ban');
 
         await Membru.ban({ reason: args.slice(1).join(" ")})
+
+        
         message.channel.send(`${Membru.user.tag} was baned from ther server!`)
     }
 }

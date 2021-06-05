@@ -8,6 +8,8 @@ module.exports = {
    * @param {String[]} args
    */
   run: async (client, message, args) => {
+    if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`${message.author.tag} nu ai acces.`);
+
     const member = message.mentions.members.first();
 
     if (!member) return message.reply("Please specify a member!");

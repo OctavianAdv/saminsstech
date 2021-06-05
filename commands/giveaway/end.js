@@ -3,6 +3,7 @@ const ms = require('ms')
 module.exports = {
     name : 'end',
     run : async(client, message, args) => {
+        if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`${message.author.tag} nu ai acces.`);
         if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('You do not have permissions to use this command')
         if(!args[0]) return message.channel.send('Please specify a message id')
 

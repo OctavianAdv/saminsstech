@@ -2,6 +2,7 @@ module.exports = {
     name: 'kick',
 
     run: async(client,message, args) => {
+        if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`${message.author.tag} nu ai acces.`);
         if(!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('i do not have permission to kick members');
         if(!args[0]) return message.channel.send('```Syntax : prefix!kick @User```')
     

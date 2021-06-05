@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed } = require("discord.js");
-const { prefix } = require("../../config.json");
+
 module.exports = {
   name: "say",
   /**
@@ -7,13 +7,14 @@ module.exports = {
    * @param {Message} message
    * @param {String[]} args
    */
-  run: async (client, message, args) => {
-    if(!args[0]) return message.channel.send(`Syntax : ${prefix}!addrole @User @Role`);
+
+  run: async(client, message, args) => {
+    if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`${message.author.tag} nu ai acces.`);
     const sayEmbed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dyanmic: true }))
-        .setDescription(args.join(" "))
-        .setTimestamp()
-        .setColor("RANDOM")
+    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynaic: true}))
+    .setDescription(args.join(" "))
+    .setTimestamp()
+    .setColor("RANDOM")
 
     message.channel.send(sayEmbed)
   },
