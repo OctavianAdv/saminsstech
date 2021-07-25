@@ -7,7 +7,7 @@ module.exports = {
          */
         if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`${message.author.tag} nu ai acces.`);
         if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You do not have permission.')
-        if(!args[0]) return message.channel.send(`Syntax : ${config.prefix}!addrole @User @Role`)
+        if(!args[0]) return message.channel.send(`Syntax : ${config.prefix}addrole @User @Role`)
 
         const primesterole = message.mentions.members.first()
         if(!primesterole) return message.channel.send('No member specified')
@@ -15,6 +15,6 @@ module.exports = {
         if(!grad) return message.channel.send('No role specified')
 
         await primesterole.roles.add(grad)
-        message.channel.send(`${primesterole.user.username} a obtinut un rol`)
+        message.channel.send(`${grad}` + ` role was added with successfully for` + " <@" + primesterole.user + ">")
     }
 }

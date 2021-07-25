@@ -17,11 +17,9 @@ client.on('ready', () => {
     console.log(`${client.user.username} ✅`);
 
     const statusarray = [
-        `get good`,
-        `watching to saminss club`,
-        `get saminss tweaks`,
-        `i have low latency + Fps boost`,
-        `low input deelay`
+        `playing`,
+        `on`,
+        `rpg.evoskill.ro`
     ];
 
     let index = 0;
