@@ -1,9 +1,10 @@
-const {Collection, Client, Discord, MessageEmbed} = require('discord.js')
+const {Collection, Client, Discord, MessageEmbed, Intents} = require('discord.js')
 const fs = require('fs')
 const config = require('./config.json')
 const client = new Client({
-    disableEveryone: true
-})
+    partials: ["CHANNEL", "MESSAGE", "GUILD_MEMBER", "REACTION"],
+    intents: 32767,
+});
 const prefix = config.prefix
 const token = config.token                                      
 client.config = config
@@ -17,9 +18,9 @@ client.on('ready', () => {
     console.log(`${client.user.username} ✅`);
 
     const statusarray = [
-        `playing`,
-        `on`,
-        `rpg.evoskill.ro`
+        `WE`,
+        `ARE`,
+        `{NAME}`
     ];
 
     let index = 0;

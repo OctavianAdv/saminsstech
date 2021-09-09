@@ -6,7 +6,7 @@ module.exports = {
          * @param {Message} message
          */
         if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send(`${message.author.tag} nu ai acces.`);
-        if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send('You do not have permission.')
+        if(!message.member.permissions.has("MANAGE_ROLES")) return message.channel.send('You do not have permission.')
         if(!args[0]) return message.channel.send(`Syntax : ${config.prefix}addrole @User @Role`)
 
         const primesterole = message.mentions.members.first()
